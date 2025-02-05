@@ -292,10 +292,10 @@ function MyRentals() {
                                                             <FaRegListAlt />
                                                         </button>
                                                         <button 
-                                                        className="text-2xl mt-[2px]"
+                                                        className="text-[25px] mt-[2px]"
                                                         data-tooltip-id="table-tooltip" data-tooltip-html="cancel booking"
                                                         >
-                                                            <MdCancelPresentation />
+                                                            <MdCancelPresentation className="fill-red-500" />
                                                         </button>
                                                     </div>
                                                 </td>

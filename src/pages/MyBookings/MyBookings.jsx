@@ -8,7 +8,7 @@ import "../../components/Table/table.css"
 import LoadingSpinner from "../../components/LoadingSpinner";
 import { Link } from "react-router-dom";
 
-const headings = ["No", "Model", "(P) Location", "(D) Location", "(P) Date", "(D) Date", "Status", "Total", "Action"]
+const headings = ["No", "Model", "(P) Location", "(D) Location", "(P) Date", "(D) Date", "Booking", "Status", "Total", "Action"]
 
 function MyBookings() {
 
@@ -273,29 +273,35 @@ function MyBookings() {
                                             }
 
                                             {
-                                                show[headings[6]] && <td data-label={headings[6]}>{itm.status}</td>
+                                                show[headings[6]] && <td data-label={headings[6]}>
+                                                    <span data-tooltip-id="table-tooltip" data-tooltip-html={new Date(itm.createdAt).toDateString()}>{new Intl.DateTimeFormat('en-GB').format(new Date(itm.createdAt))}</span>
+                                                </td>
                                             }
 
                                             {
-                                                show[headings[7]] && <td data-label={headings[7]}>
+                                                show[headings[7]] && <td data-label={headings[7]}>{itm.status}</td>
+                                            }
+
+                                            {
+                                                show[headings[8]] && <td data-label={headings[8]}>
                                                     ${itm.totalPrice}
                                                 </td>
                                             }
 
                                             {
-                                                show[headings[8]] && <td data-label={headings[8]}>
+                                                show[headings[9]] && <td data-label={headings[9]}>
                                                     <div className="inline-flex justify-center items-center align-top gap-2">
-                                                        <button 
-                                                        className="text-xl"
-                                                        data-tooltip-id="table-tooltip" data-tooltip-html="change booking schedule"
+                                                        <button
+                                                            className="text-xl"
+                                                            data-tooltip-id="table-tooltip" data-tooltip-html="change booking schedule"
                                                         >
-                                                            <SlCalender />
+                                                            <SlCalender className="fill-blue-700" />
                                                         </button>
-                                                        <button 
-                                                        className="text-2xl mt-[2px]"
-                                                        data-tooltip-id="table-tooltip" data-tooltip-html="cancel booking"
+                                                        <button
+                                                            className="text-[25px] mt-[2px]"
+                                                            data-tooltip-id="table-tooltip" data-tooltip-html="cancel booking"
                                                         >
-                                                            <MdCancelPresentation />
+                                                            <MdCancelPresentation className="fill-red-500" />
                                                         </button>
                                                     </div>
                                                 </td>
